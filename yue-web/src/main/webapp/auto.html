@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<script src="plugins/jQuery/jquery-2.2.3.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$.post(
+			"/order/findUserRole.do",
+			function(req){
+				if(req){
+					//true  学员登录  订单管理页面
+					location.href = "order.html";
+				}else{
+					//false  教务登录  课程管理页面
+					location.href = "course.html";
+				}
+			}
+		);
+	})
+</script>
+<body>
+
+</body>
+</html>

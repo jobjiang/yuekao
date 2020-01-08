@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>教务课程管理</title>
+</head>
+<script src="plugins/jQuery/jquery-2.2.3.min.js"></script>
+<script type="text/javascript" src="plugins/angularjs/angular.min.js"></script>
+<link rel="stylesheet" href="css2/index2.css" ></link>
+<script type="text/javascript" src="js/base.js"></script>
+<script type="text/javascript" src="js/service/orderService.js"></script>
+<script type="text/javascript" src="js/controller/orderController.js"></script>
+<body ng-app="myApp" ng-controller="orderController" ng-init="searchCourse()">
+	<a href="add.html">添加课程</a>
+	<table>
+		<tr>
+			<td>课程名称</td>
+			<td>课程图片</td>
+			<td>课程类别</td>
+			<td>课程课时</td>
+			<td>课程讲师</td>
+			<td>开课时间</td>
+			<td>课程状态</td>
+			<td>操作</td>
+		</tr>
+		<tr ng-repeat="entity in courseList">
+			<td>{{entity.cname}}</td>
+			<td>
+				<img alt="" src="{{entity.images}}" width="40px" height="40px">
+			</td>
+			<td>{{entity.tid}}</td>
+			<td>{{entity.price}}</td>
+			<td>{{entity.sid}}</td>
+			<td>{{entity.createtime}}</td>
+			<td>{{statusZ[entity.status]}}</td>
+			<td>
+				<input type="button" value="{{xiuZ[entity.status]}}" ng-click="changeStatus(entity)">
+				<a href="shop.html#?cid={{entity.cid}}">下单</a>
+			</td>
+		</tr>
+	</table>
+	<input type="text" value="共{{totalPage}}条数据">
+	<input type="button" value="上一页" ng-click="prev()">
+	<input type="button" value="下一页" ng-click="next()">
+</body>
+</html>

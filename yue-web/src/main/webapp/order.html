@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>学员订单管理</title>
+</head>
+<script src="plugins/jQuery/jquery-2.2.3.min.js"></script>
+<script type="text/javascript" src="plugins/angularjs/angular.min.js"></script>
+<link rel="stylesheet" href="css2/index2.css" ></link>
+<script type="text/javascript" src="js/base.js"></script>
+<script type="text/javascript" src="js/service/orderService.js"></script>
+<script type="text/javascript" src="js/controller/orderController.js"></script>
+<body ng-app="myApp" ng-controller="orderController" ng-init="searchOrder()">
+	<table>
+		<tr>
+			<td>订单编号</td>
+			<td>课程名称</td>
+			<td>订单金额</td>
+			<td>订单时间</td>
+			<td>订单状态</td>
+		</tr>
+		<tr ng-repeat="order in orderList">
+			<td>{{order.oid}}</td>
+			<td>{{order.cname}}</td>
+			<td>{{order.sum}}</td>
+			<td>{{order.endtime}}</td>
+			<td>{{orderZ[order.status]}}</td>
+		</tr>
+	</table>
+</body>
+</html>
